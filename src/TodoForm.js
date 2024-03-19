@@ -1,35 +1,37 @@
-import React, { useState } from 'react';
+import React, { useState } from "react";
 
-function TodoForm({onAddItem}) {
-    const [name, setName] = useState("")
-    const [quantity, setQuantity] = useState(1);
-  
+function TodoForm({ onAddItem }) {
+  const [name, setName] = useState("");
+  const [quantity, setQuantity] = useState(1);
 
+  function handleSubmit(e) {
+    e.preventDefault();
 
-    function handleSubmit(e){
-      e.preventDefault();
+    if (!name) return;
 
-      if(!name) return;
+    const newItem = { name, quantity, id: Date.now(), isChecked: false };
+    console.log(newItem);
 
-      const newItem = { name, quantity, id:Date.now(), isChecked : false}
-      console.log(newItem);
-
-      setName("");
-      setQuantity(1);
-      onAddItem(newItem);
-          
-        
-      }
+    setName("");
+    setQuantity(1);
+    onAddItem(newItem);
+  }
   return (
     <div id="form">
       <form onSubmit={handleSubmit}>
-        <select value ={quantity} onChange={(e) => setQuantity(e.target.value)}>
+        <select
+          value={quantity}
+          onChange={(e) => setQuantity(e.target.value)}
+          style={{ width: "50px", height: "40px" }}
+        >
           {/* <option value={1}>1</option>
           <option value={2}>2</option>
           <option value={3}>3</option> */}
 
-          {Array.from({ length:30}, (_, i) => i + 1).map((num) => (
-            <option value={num} key={num}>{num}</option>
+          {Array.from({ length: 30 }, (_, i) => i + 1).map((num) => (
+            <option value={num} key={num}>
+              {num}
+            </option>
           ))}
         </select>
         <input
