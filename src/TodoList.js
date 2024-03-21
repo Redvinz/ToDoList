@@ -1,8 +1,10 @@
-// TodoList.js
-import React from "react";
-import TodoItem from "./TodoItem";
 
-function TodoList({ items, onDelete }) {
+
+// TodoList.js
+import React from 'react';
+import TodoItem from './TodoItem';
+
+function TodoList({items}) {
   // const items = [
   //   { id: 1, quantity: "1", name: "Milk", isChecked: false },
   //   { id: 2, quantity: "2", name: "Coffee", isChecked: false },
@@ -17,7 +19,7 @@ function TodoList({ items, onDelete }) {
     <div id="myUnOrdList">
       <ul className="todo-list">
         {items.map((item) => (
-          <TodoItem itemList={item} key={item.id} onDelete={onDelete} />
+          <TodoItem itemList={item} key={item.id} />
         ))}
       </ul>
     </div>
