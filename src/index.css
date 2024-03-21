@@ -1,6 +1,18 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@500;600;700;900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@600&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Madimi+One&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Madimi+One&family=Slackside+One&display=swap");
+
 /* styles.css */
 body {
-  font-family: 'Arial', sans-serif;
+  font-family: "Arial", sans-serif;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -8,17 +20,16 @@ body {
   margin: 0;
 }
 
+.container {
+  text-align: center;
+}
+
 .card {
   background-color: #e8e7e7;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
   padding: 20px;
   border-radius: 8px;
-  width: 600px; /* Adjust width as needed */
-  height: 300px; /* Adjust height as needed */
-}
-
-.container {
-  text-align: center;
+  width: 400px;
 }
 
 form {
@@ -33,39 +44,37 @@ input {
 button {
   padding: 8px 12px;
   cursor: pointer;
-  margin-right: 0; 
-
-}
-
-/* TodoItem.css */
-span {
-  margin-left: 8px;
 }
 
 /* TodoList.css */
-div {
-  max-width: 300px;
-  margin: 0 auto;
-}
-
-.todo{
+.todo {
   display: flex;
   align-items: center;
+  justify-content: space-between;
+  margin-bottom: 10px;
 }
 
-.trashbin{
-  margin-left: auto;
-  background-color: rgb(218, 48, 48);
-  margin-right: 0; 
-  margin-top: 10px;
-}
-
-.trashbin-container {
-  margin-right: 10px; 
-  margin-left: auto;
+.todo-btn {
+  background-color: rgb(158, 199, 252);
+  box-shadow: 0 1px, 1px, 1px;
+  border: none;
+  border-radius: 0.5rem;
 }
 
 .todo-item {
   display: flex;
   align-items: center;
+}
+
+.trashbin {
+  background-color: rgb(218, 48, 48);
+  padding: 5px;
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  color: white;
+}
+
+.trashbin:hover {
+  background-color: rgb(176, 28, 28);
 }
