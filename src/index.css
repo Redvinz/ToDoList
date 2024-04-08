@@ -43,11 +43,12 @@ body::before {
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
   padding: 20px;
   border-radius: 8px;
-  width: 400px;
+  width: 600px;
 }
 
 form {
   margin-bottom: 20px;
+  width: 600px;
 }
 
 input {
@@ -83,6 +84,7 @@ button {
 .trashbin {
   background-color: rgb(218, 48, 48);
   padding: 5px;
+  margin-right: 20px;
   border: none;
   border-radius: 50%;
   cursor: pointer;
@@ -91,4 +93,29 @@ button {
 
 .trashbin:hover {
   background-color: rgb(176, 28, 28);
+}
+
+.clear {
+  background-color: rgb(224, 78, 78);
+  padding: 5px;
+  border: none;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  color: white;
+}
+
+.checkbox-container {
+  display: inline-block;
+  position: relative;
+  width: 20px;
+  height: 20px;
+  margin-left: 30px;
+}
+
+.filter-btn {
+  margin-left: 10px;
+  background-color: #969696;
+  border: none;
+  border-radius: 1rem;
+  cursor: pointer;
 }

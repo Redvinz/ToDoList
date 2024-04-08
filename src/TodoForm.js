@@ -3,6 +3,7 @@ import React, { useState } from "react";
 function TodoForm({ onAddItem }) {
   const [name, setName] = useState("");
   const [quantity, setQuantity] = useState(1);
+  const [filter, setFilter] = useState("all");
 
   function handleSubmit(e) {
     e.preventDefault();
@@ -40,8 +41,20 @@ function TodoForm({ onAddItem }) {
           placeholder="Add a task"
           value={name}
           onChange={(e) => setName(e.target.value)}
+          style={{ width: "300px" }}
         />
-        <button className="todo-btn darker-button">Add</button>
+        <button type="submit" className="todo-btn darker-button">
+          Add
+        </button>
+        <select
+          value={filter}
+          onChange={(e) => setFilter(e.target.value)}
+          style={{ height: "40px" }}
+        >
+          <option value="all">All</option>
+          <option value="completed">Completed</option>
+          <option value="incomplete">Incomplete</option>
+        </select>
       </form>
     </div>
   );

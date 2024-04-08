@@ -1,31 +1,3 @@
-// App.js
-// import React, { useState } from 'react';
-// import TodoForm from './TodoForm';
-// import TodoList from './TodoList';
-
-// const App = () => {
-//   const [todos, setTodos] = useState([]);
-
-//   const handleAddTodo = (text) => {
-//     setTodos(prevTodos => [
-//       ...prevTodos,
-//       { id: Date.now(), text, completed: false },
-//     ]);
-//   };
-
-//   const handleDeleteTodo = (id) => {
-//     setTodos(prevTodos => prevTodos.filter(todo => todo.id !== id));
-//   };
-
-//   return (
-//     <div className="card">
-//       <h1>React To-Do List</h1>
-//       <TodoForm onAdd={handleAddTodo} />
-//       <TodoList todos={todos} onDelete={handleDeleteTodo} />
-//     </div>
-//   );
-// };
-
 import React from "react";
 import TodoForm from "./TodoForm";
 import TodoList from "./TodoList";
@@ -43,6 +15,26 @@ function App() {
     setItems((items) => items.filter((item) => item.id !== itemId));
   }
 
+  function handleClearItems() {
+    setItems([]);
+  }
+
+  function handleCheck(itemId, isChecked) {
+    setItems((items) =>
+      items.map((item) =>
+        item.id === itemId ? { ...item, isChecked: isChecked } : item
+      )
+    );
+  }
+
+  const completionPercentage =
+    items.length > 0
+      ? (
+          (items.filter((item) => item.isChecked).length / items.length) *
+          100
+        ).toFixed(2)
+      : 0;
+
   return (
     <div className="container">
       <div className="card">
@@ -57,8 +49,13 @@ function App() {
         >
           TO DO LIST
         </h1>
+        <p>Double click to edit</p>
         <TodoForm onAddItem={handleAddItem} />
-        <TodoList items={items} onDelete={handleDeleteItem} />
+        <p>You have completed {completionPercentage}% of your tasks!</p>
+        <TodoList items={items} onDelete={handleDeleteItem} onCheck={handleCheck} />
+        <button onClick={handleClearItems} className="clear">
+          Clear All
+        </button>
       </div>
     </div>
   );
